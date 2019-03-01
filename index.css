@@ -1,0 +1,138 @@
+@charset "utf-8";
+
+body {
+    margin: 0;
+    display: table;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+body * {
+    box-sizing: border-box;
+}
+.vcenter {
+    display: table-cell;
+    vertical-align: middle;
+}
+.debug {
+    transform: scale(1.5);
+}
+.debug,.debug::before, .debug::after,.debug *,.debug *::before,.debug *::after {
+    border: red solid 1px;
+}
+.logo {
+    --size: 8px;
+    --radius: 8px;
+    background-color: black; 
+    width: 256px;
+    height: 256px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.shape {
+    position: relative;
+    top: 32%;
+    left: 20%;
+}
+
+.arrow {
+    position: relative;
+    background-color: white;
+    border-radius: var(--radius); 
+    width: calc(var(--size) * 3);
+    height: var(--size);
+    top: calc(var(--size) * 5);
+}
+.arrow .dot {
+    width: var(--size);
+    height: var(--size);
+    border-radius: var(--radius);
+    box-shadow: calc(var(--size) * 6) 0 0 white;
+}
+.arrow::before,.arrow::after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: var(--radius);
+    background-color: white;
+    right: calc(var(--size) * -2.5);
+    width: calc(var(--size) * 3);
+    height: var(--size);
+}
+.arrow::before {
+    transform: rotateZ(36deg);
+    top: calc(var(--size) * -2);
+}
+
+.arrow::after {
+    transform: rotateZ(-36deg);
+    top: calc(var(--size) * 2);
+}
+
+.snowflake {
+    position: relative;
+    left: calc(var(--size) * 3);
+}
+
+.branch {
+    position: relative;
+    border-radius: var(--radius);
+    width: calc(var(--size) * 5);
+    height: var(--size);
+    background-color: white;
+}
+.branch .dot {
+    width: var(--size);
+    height: var(--size);
+    border-radius: var(--radius);
+    box-shadow: calc(var(--size) * 6) 0 0 white;
+}
+.branch::before,.branch::after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: var(--radius);
+    background-color: white;
+    right: var(--size);
+    width: calc(var(--size) * 3);
+    height: var(--size);
+}
+.branch::before {
+    transform: rotateZ(60deg);
+    top: -8px;
+}
+
+.branch::after {
+    transform: rotateZ(-60deg);
+    top: 8px;
+}
+
+
+
+.branch.top {
+    transform: rotateZ(90deg);
+    right: calc(var(--size) * -8);
+}
+
+.branch.left-slope {
+    transform: rotateZ(30deg);
+    right: calc(var(--size) * -4.5);
+    top: calc(var(--size));
+}
+
+.branch.right-slope {
+    transform: rotateZ(150deg);
+    right: calc(var(--size) * -11.5);
+}
+
+.top-part, .bottom-part {
+    position: relative;
+}
+
+.bottom-part {
+    transform: rotateZ(180deg);
+    top: calc(var(--size) * 3);
+    left: calc(var(--size) * -11);
+}
+
